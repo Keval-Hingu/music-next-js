@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const WavyBackground = ({
   children,
   className,
@@ -75,7 +76,7 @@ export const WavyBackground = ({
       ctx.lineWidth = waveWidth || 50;
       ctx.strokeStyle = waveColors[i % waveColors.length];
       for (x = 0; x < w; x += 5) {
-        var y = noise(x / 800, 0.3 * i, nt) * 100;
+        let y = noise(x / 800, 0.3 * i, nt) * 100;
         ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
       }
       ctx.stroke();
@@ -92,6 +93,7 @@ export const WavyBackground = ({
     animationId = requestAnimationFrame(render);
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     init();
     return () => {
@@ -100,6 +102,7 @@ export const WavyBackground = ({
   }, []);
 
   const [isSafari, setIsSafari] = useState(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     // I'm sorry but i have got to support it on safari.
     setIsSafari(

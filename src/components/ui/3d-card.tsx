@@ -76,6 +76,7 @@ export const CardContainer = ({
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CardBody = ({
   children,
   className,
@@ -121,6 +122,7 @@ export const CardItem = ({
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     handleAnimations();
   }, [isMouseEntered]);

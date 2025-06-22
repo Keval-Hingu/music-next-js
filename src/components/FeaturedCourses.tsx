@@ -3,7 +3,7 @@ import React from 'react'
 import courseData from "../data/music_courses.json";
 import Link from 'next/dist/client/link';
 import {BackgroundGradient} from './ui/background-gradient';
-
+import Image from 'next/image';
 interface Course {
     id: number,
     title: string,
